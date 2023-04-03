@@ -9,6 +9,8 @@ import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -20,11 +22,18 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity {
+    private EditText harga1unit;
+    private TextView harga100unit;
+    Button submitBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        harga1unit = findViewById(R.id.harga_unit_input);
+        harga100unit = findViewById(R.id.harga_100_unit);
+        submitBtn = findViewById(R.id.submit_button);
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -41,6 +50,15 @@ public class MainActivity extends AppCompatActivity {
         String formatDate = DateFormat.getDateInstance().format(myDate);
         TextView expiredTextView = findViewById(R.id.date);
         expiredTextView.setText(formatDate);
+
+        submitBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String harga_per_unit = harga1unit.getText().toString();
+                double harga_100_unit = Double.parseDouble(harga_per_unit) * 100;
+                harga100unit.setText(String.valueOf(harga_100_unit));
+            }
+        });
     }
 
     /**
@@ -57,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
      * Creates the options menu and returns true.
      *
      * @param menu       Options menu
-     * @return boolean   True after creating options menu.
+     * @return boolean   True after creating op tions menu.
      */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

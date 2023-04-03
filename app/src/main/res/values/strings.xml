@@ -1,6 +1,6 @@
 <resources>
     <!-- All comments are notes to translators. -->
-    <string name="app_name">LocaleText</string>
+    <string name="app_name">Localization App</string>
 
     <!-- The Help option in the options menu, no more than 30 chars. -->
     <string name="action_help">Help</string>
@@ -23,4 +23,7 @@
     <!-- Do not translate.  -->
     <string name="dial_log_message">Can\'t resolve app for ACTION_DIAL Intent.</string>
     <string name="expired_label">Expired date :</string>
+    <string name="currency">$</string>
+    <string name="price_per_unit">Unit price :</string>
+    <string name="price_100_unit">Price 100 unit :</string>
 </resources>
